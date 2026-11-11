@@ -41,8 +41,13 @@ own throttle (about 97 °C) and shutdown protection work independently of this.
 | Fan mode | EC `0xF4`: `0x0C` auto (EC ignores the speed tables), `0x8C` advanced (EC follows them) |
 | Fan tachometers | EC `0xCC–0xCD` (CPU), `0xCA–0xCB` (GPU): 16-bit big-endian period, rpm = 478000 / value |
 
-Fans ramp gradually: about 45 s for the CPU fan and 90 s for the GPU fan. Speed scales roughly
-linearly with level (about 1,200 rpm at 20 %, about 4,200 rpm at 70 %).
+Fans ramp gradually: about 45 s for the CPU fan and 90 s for the GPU fan. Measured speed by level:
+
+| Level | 20 % | 30 % | 40 % | 50 % | 60 % | 70 % | 80 % | 90 % |
+|---|---|---|---|---|---|---|---|---|
+| rpm | 1,200 | 1,800 | 2,400 | 3,000 | 3,600 | 4,150 | 4,750 | 5,300 |
+
+Levels between 1 and 20 % behave like 20 %, levels above 90 % behave like 90 %, and 0 % stops the fan.
 
 The CPU (i9-10900K) shares one clock across all cores; package power scales roughly with the
 cube of clock (about 100 W at 3.7 GHz up to about 147 W at 4.2 GHz under full AVX2 load).
@@ -90,9 +95,16 @@ oscillate. Ubuntu's `thermald` can silently reset PL1, so masking it is recommen
 1. In **Advanced** mode, use **Set all bands** to pin a fan at one speed and listen; repeat to find
    the loudest acceptable speed. (In testing, fans became noticeable around 2,400 rpm over an idle of
    about 1,200 rpm.)
-2. Keep that curve and raise the clock cap step by step while running a full load
-   (`python3 /opt/gt76-fanctl/cpu_stress.py`). The highest clock where temperatures settle
-   below about 90 °C is your sustainable clock.
+2. Keep that curve and find the highest clock where temperatures settle below about 90 °C.
+   `tools/clock_sweep.py` automates this through the service (no root needed): for each clock
+   it cools the CPU, runs 2 minutes of full all-core load with power limits off, records
+   temperatures, fan speed, power and throughput, stops at the first clock that throttles or
+   trips the failsafe, and restores your settings:
+   ```bash
+   python3 tools/clock_sweep.py sweep.json 3800 3900 4000 4100 4200
+   ```
+   With the CPU fan capped at 65 % (about 3,900 rpm), this machine reached 76 / 83 / 87 / 92 °C
+   at 3.8 / 3.9 / 4.0 / 4.1 GHz after 2 minutes, and throttled at 4.2 GHz.
 3. **Save current as my defaults.**
 
 ## Tests

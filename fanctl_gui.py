@@ -210,6 +210,14 @@ class Window(QMainWindow):
         (self.mode_adv if live["fan_mode"] == "advanced" else self.mode_auto).setChecked(True)
         self.cpu_row.set_values(live["cpu_curve"])
         self.gpu_row.set_values(live["gpu_curve"])
+        self.loaded_live = dict(live)
+
+    def controls_unedited(self):
+        """True if the controls still show the settings last loaded into them."""
+        live = self.loaded_live
+        return (self.clock_slider.value() == live["max_clock_mhz"] // 100
+                and self.mode_adv.isChecked() == (live["fan_mode"] == "advanced")
+                and self.cpu_row.values() == live["cpu_curve"] and self.gpu_row.values() == live["gpu_curve"])
 
     def describe(self, s):
         return (f"{s['max_clock_mhz'] / 1000:.1f} GHz cap, PL1 {s['pl1_w']} W, fans {s['fan_mode']} "
@@ -259,9 +267,12 @@ class Window(QMainWindow):
             self.show_error(f"Can't reach the gt76-fanctld service ({e}). "
                             "Check: systemctl status gt76-fanctld")
             return
+        live = self.status["live"]
         if not self.loaded:
-            self.load_controls(self.status["live"])
+            self.load_controls(live)
             self.loaded = True
+        elif live != self.loaded_live and self.controls_unedited():
+            self.load_controls(live)  # changed elsewhere (another client or a script); follow it
         if self.message.text().startswith("<span"):  # clear a stale error; show_status re-raises live ones
             self.message.clear()
         self.show_status()

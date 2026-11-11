@@ -14,6 +14,7 @@ import argparse
 import glob
 import multiprocessing as mp
 import os
+import signal
 import time
 
 # One BLAS thread per worker so each process occupies exactly one logical CPU.
@@ -25,6 +26,7 @@ RAPL = "/sys/class/powercap/intel-rapl:0"
 
 def run_worker(target, cpu, counter, idx):
     """Run a worker only on logical CPU `cpu` (None = unpinned)."""
+    signal.signal(signal.SIGTERM, signal.SIG_DFL)  # the parent's handler is inherited; workers just exit
     if cpu is not None:
         os.sched_setaffinity(0, {cpu})
     target(counter, idx)
@@ -98,6 +100,10 @@ def main():
     if cpus:
         args.workers = len(cpus)
 
+    # Treat SIGTERM like Ctrl-C so the finally block stops the workers instead of orphaning them
+    def on_term(*_):
+        raise KeyboardInterrupt
+    signal.signal(signal.SIGTERM, on_term)
     unit = "GFLOP/s" if args.mode == "avx" else "M iter/s"
     target = worker_avx if args.mode == "avx" else worker_scalar
     counter = mp.Array("d", args.workers, lock=False)
