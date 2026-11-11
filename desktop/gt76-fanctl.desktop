@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=GT76 Fan Control
+GenericName=Fan and clock control
+Comment=Fan curves, CPU clock cap and temperatures for the MSI GT76 Titan DT
+Exec=/usr/bin/python3 -I /opt/gt76-fanctl/fanctl_gui.py
+Icon=gt76-fanctl
+Terminal=false
+Categories=Settings;HardwareSettings;
+Keywords=fan;temperature;cpu;clock;msi;

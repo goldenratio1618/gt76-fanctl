@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1f6feb"/>
+  <g fill="#ffffff" transform="translate(32 32)">
+    <path id="blade" d="M0 -4 C 4 -14, 14 -22, 22 -18 C 18 -10, 10 -4, 0 -4 Z"/>
+    <use href="#blade" transform="rotate(90)"/>
+    <use href="#blade" transform="rotate(180)"/>
+    <use href="#blade" transform="rotate(270)"/>
+    <circle r="6"/>
+  </g>
+  <circle cx="32" cy="32" r="3" fill="#1f6feb"/>
+</svg>

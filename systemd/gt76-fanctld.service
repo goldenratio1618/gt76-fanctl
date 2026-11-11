@@ -1,0 +1,17 @@
+[Unit]
+Description=GT76 fan curve, CPU clock cap and power limit service
+After=systemd-modules-load.service
+
+[Service]
+Type=simple
+# Members of this group may change settings through /run/gt76-fanctl.sock (set by install.sh)
+Environment=FANCTL_GROUP=@GROUP@
+ExecStart=/usr/bin/python3 -I /opt/gt76-fanctl/fanctld.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target
