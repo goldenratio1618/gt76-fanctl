@@ -62,7 +62,9 @@ FACTORY = {
 # (a PL2 near actual draw makes the clock oscillate), factory fan curve.
 INITIAL_DEFAULTS = dict(FACTORY, max_clock_mhz=3900, pl1_w=135, pl1_window_s=10)
 
-FAILSAFE_CPU_C, FAILSAFE_GPU_C, FAILSAFE_SAMPLES = 95, 90, 3
+# GPU threshold sits above NVIDIA's 87 C boost target (which a capped GPU fan will hold the
+# GPU near) so normal overshoot doesn't trip it, and below the GPU's own 97 C slowdown.
+FAILSAFE_CPU_C, FAILSAFE_GPU_C, FAILSAFE_SAMPLES = 95, 94, 3
 
 log = logging.getLogger("gt76-fanctld")
 

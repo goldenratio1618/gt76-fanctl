@@ -131,6 +131,20 @@ class FanctldTest(unittest.TestCase):
         self.c.handle({"cmd": "apply", "settings": {"fan_mode": "auto"}})  # a new apply clears it
         self.assertIsNone(self.c.failsafe)
 
+    def test_gpu_near_boost_target_does_not_trip_failsafe(self):
+        self.c.handle({"cmd": "apply", "settings": {"fan_mode": "advanced", "gpu_curve": [20, 30, 45, 60, 65, 65, 65]}})
+        self.ec[0x80] = 91  # a fan-capped GPU hovering just above NVIDIA's 87 C target
+        self.sync_ec()
+        for _ in range(self.m.FAILSAFE_SAMPLES + 2):
+            self.c.enforce_once()
+        self.assertIsNone(self.c.failsafe)
+        self.ec[0x80] = self.m.FAILSAFE_GPU_C
+        self.sync_ec()
+        for _ in range(self.m.FAILSAFE_SAMPLES):
+            self.c.enforce_once()
+        self.assertIsNotNone(self.c.failsafe)
+        self.assertEqual(self.ec[0xF4], 0x0C)
+
     def test_wrong_firmware_blocks_ec_writes(self):
         self.ec[0xA0:0xAC] = b"17H1EMS1.104"
         self.sync_ec()

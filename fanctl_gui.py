@@ -166,7 +166,7 @@ class Window(QMainWindow):
         self.gpu_row = CurveRow(grid, 3, "GPU fan")
         v.addLayout(grid)
         note = QLabel("Fans ramp gradually: about 45 s (CPU) to 90 s (GPU) to reach a new speed. "
-                      "If a custom curve lets the CPU reach 95 °C or the GPU 90 °C, the service "
+                      "If a custom curve lets the CPU reach 95 °C or the GPU 94 °C, the service "
                       "switches the fans back to the factory curve.")
         note.setWordWrap(True)
         v.addWidget(note)

@@ -26,9 +26,11 @@ affiliated with MSI.
 | `fanctld.py` (systemd `gt76-fanctld`) | root | Owns all hardware writes; validates requests; applies your defaults at boot; re-applies settings every 2 s if anything drifts (EC reset, resume from sleep); thermal failsafe |
 | `fanctl_gui.py` (PyQt6) | you | Talks to the service over `/run/gt76-fanctl.sock` (mode 0660, your group) |
 
-**Thermal failsafe:** if a custom curve lets the CPU reach 95 °C or the GPU 90 °C for about 6 s,
-the service switches the fans back to the factory curve until you apply new settings. The CPU's
-own throttle (about 97 °C) and shutdown protection work independently of this.
+**Thermal failsafe:** if a custom curve lets the CPU reach 95 °C or the GPU 94 °C for about 6 s,
+the service switches the fans back to the factory curve until you apply new settings. The GPU
+threshold sits above NVIDIA's 87 °C boost target, which a fan-capped GPU will hover near, so normal
+overshoot doesn't trip it. The CPU's own throttle (about 97 °C), the GPU's own slowdown (97 °C) and
+both chips' shutdown protection work independently of this.
 
 ### Hardware details discovered for this model
 
