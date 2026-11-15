@@ -1,0 +1,85 @@
+cooling: GPU 57 C > 50 Ccooling: GPU 56 C > 50 Ccooling: GPU 55 C > 50 Ccooling: GPU 53 C > 50 Ccooling: GPU 53 C > 50 Ccooling: GPU 52 C > 50 Ccooling: GPU 51 C > 50 Ccooling: GPU 51 C > 50 C
+NVIDIA GeForce RTX 2080 Super, fp16 8192x8192 matmul, 300 s
+    t   GPU C   MHz      W  TFLOP/s  fan rpm  CPU C  slowdown
+    5      76  1815    200     35.2     1881     50  power_cap
+   10      83  1740    173     30.8     2069     51  thermal_slowdown
+   15      84  1695    161     30.8     2254     52  thermal_slowdown
+   20      85  1650    151     30.8     2426     52  thermal_slowdown
+   25      85  1635    144     30.8     2597     52  thermal_slowdown
+   30      86  1605    144     30.8     2811     51  thermal_slowdown
+   35      86  1560    142     26.4     2932     51  thermal_slowdown
+   40      86  1500    136     26.4     3083     52  thermal_slowdown
+   45      86  1560    139     26.4     3251     51  thermal_slowdown
+   50      86  1560    136     26.4     3414     51  thermal_slowdown
+   55      87  1560    143     30.8     3514     52  thermal_slowdown
+   60      86  1560    136     30.8     3734     51  thermal_slowdown
+   65      87  1560    136     30.8     3854     51  thermal_slowdown
+   70      87  1560    140     26.4     3918     51  thermal_slowdown
+   75      86  1560    134     26.4     3854     52  thermal_slowdown
+   80      86  1560    135     26.4     3886     51  thermal_slowdown
+   85      86  1560    134     30.8     3886     52  thermal_slowdown
+   90      87  1560    137     26.4     3886     51  thermal_slowdown
+   95      86  1530    136     26.4     3854     51  thermal_slowdown
+  100      86  1500    123     26.4     3886     51  thermal_slowdown
+  105      86  1560    143     26.4     3886     52  thermal_slowdown
+  110      87  1515    141     30.8     3886     52  thermal_slowdown
+  115      87  1560    136     26.4     3886     52  thermal_slowdown
+  120      86  1560    130     26.4     3918     52  thermal_slowdown
+  125      86  1560    134     26.4     3824     52  thermal_slowdown
+  130      86  1560    136     26.4     3886     51  thermal_slowdown
+  135      86  1560    138     26.4     3886     52  thermal_slowdown
+  140      87  1560    135     26.4     3854     51  thermal_slowdown
+  145      87  1545    136     30.8     3854     52  thermal_slowdown
+  150      86  1560    139     26.4     3854     52  thermal_slowdown
+  155      87  1560    138     26.4     3854     51  thermal_slowdown
+  160      86  1560    134     26.4     3886     52  thermal_slowdown
+  165      87  1560    138     26.4     3886     52  thermal_slowdown
+  170      86  1485    123     26.4     3854     53  thermal_slowdown
+  175      86  1560    138     26.4     3886     52  thermal_slowdown
+  180      87  1560    137     26.4     3854     52  thermal_slowdown
+  185      87  1545    135     26.4     3886     54  thermal_slowdown
+  190      87  1515    136     30.8     3886     52  thermal_slowdown
+  195      86  1560    130     26.4     3886     51  thermal_slowdown
+  200      87  1560    136     26.4     3854     52  thermal_slowdown
+  205      86  1560    132     26.4     3886     52  thermal_slowdown
+  210      87  1530    142     30.8     3854     52  thermal_slowdown
+  215      87  1560    140     26.4     3824     52  thermal_slowdown
+  220      87  1560    133     30.8     3886     52  thermal_slowdown
+  225      87  1545    131     30.8     3854     53  thermal_slowdown
+  230      87  1545    142     30.8     3886     54  thermal_slowdown
+  235      87  1515    136     26.4     3854     52  thermal_slowdown
+  240      87  1560    131     30.8     3886     53  thermal_slowdown
+  245      87  1560    136     30.8     3854     54  thermal_slowdown
+  250      87  1560    137     30.8     3918     52  thermal_slowdown
+  255      87  1560    134     30.8     3886     53  thermal_slowdown
+  260      87  1545    131     30.8     3854     54  thermal_slowdown
+  265      87  1530    133     30.8     3854     52  thermal_slowdown
+  270      87  1560    135     30.8     3886     52  thermal_slowdown
+  275      87  1545    134     30.8     3854     52  thermal_slowdown
+  280      86  1545    135     30.8     3886     52  thermal_slowdown
+  285      87  1560    135     26.4     3854     53  thermal_slowdown
+  290      87  1560    137     26.4     3886     53  thermal_slowdown
+  295      87  1515    138     26.4     3886     52  thermal_slowdown
+  300      87  1560    135     26.4     3886     53  thermal_slowdown
+{
+  "gpu": "NVIDIA GeForce RTX 2080 Super",
+  "dtype": "fp16",
+  "size": 8192,
+  "seconds": 300.0,
+  "stop_reason": null,
+  "last60s": {
+    "gpu_c": 86.8,
+    "gpu_mhz": 1545.2,
+    "gpu_w": 134.6,
+    "tflops": 28.3,
+    "gpu_rpm": 3874.5,
+    "cpu_c": 52.5,
+    "frac_power_cap": 0.0,
+    "frac_thermal_slowdown": 1.0,
+    "frac_hw_thermal_slowdown": 0.0,
+    "frac_hw_slowdown": 0.0
+  },
+  "peak_gpu_c": 87.0,
+  "gpu_c_slope_per_min_last60s": 0.0
+}
+wrote results/pre-repaste/gpu_stress.json

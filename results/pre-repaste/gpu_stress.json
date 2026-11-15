@@ -1,0 +1,4548 @@
+{
+ "summary": {
+  "gpu": "NVIDIA GeForce RTX 2080 Super",
+  "dtype": "fp16",
+  "size": 8192,
+  "seconds": 300.0,
+  "stop_reason": null,
+  "last60s": {
+   "gpu_c": 86.8,
+   "gpu_mhz": 1545.2,
+   "gpu_w": 134.6,
+   "tflops": 28.3,
+   "gpu_rpm": 3874.5,
+   "cpu_c": 52.5,
+   "frac_power_cap": 0.0,
+   "frac_thermal_slowdown": 1.0,
+   "frac_hw_thermal_slowdown": 0.0,
+   "frac_hw_slowdown": 0.0
+  },
+  "peak_gpu_c": 87.0,
+  "gpu_c_slope_per_min_last60s": 0.0
+ },
+ "fan_settings": {
+  "fan_mode": "advanced",
+  "cpu_curve": [
+   20,
+   40,
+   50,
+   60,
+   65,
+   65,
+   65
+  ],
+  "gpu_curve": [
+   20,
+   30,
+   45,
+   60,
+   65,
+   65,
+   65
+  ],
+  "max_clock_mhz": 4000
+ },
+ "started": "2026-11-15T12:02:17",
+ "samples": [
+  {
+   "t": 1.0,
+   "gpu_c": 63.0,
+   "gpu_mhz": 1860.0,
+   "gpu_w": 195.14,
+   "util_pct": 51.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 1803,
+   "gpu_level": 30,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 2.0,
+   "gpu_c": 67.0,
+   "gpu_mhz": 1860.0,
+   "gpu_w": 196.03,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 35.18,
+   "gpu_rpm": 1776,
+   "gpu_level": 45,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 3.0,
+   "gpu_c": 71.0,
+   "gpu_mhz": 1860.0,
+   "gpu_w": 196.49,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 1803,
+   "gpu_level": 45,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 4.0,
+   "gpu_c": 74.0,
+   "gpu_mhz": 1845.0,
+   "gpu_w": 195.44,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 35.18,
+   "gpu_rpm": 1859,
+   "gpu_level": 60,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 5.0,
+   "gpu_c": 76.0,
+   "gpu_mhz": 1815.0,
+   "gpu_w": 200.3,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 35.18,
+   "gpu_rpm": 1881,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 6.0,
+   "gpu_c": 79.0,
+   "gpu_mhz": 1815.0,
+   "gpu_w": 199.69,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 1935,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 7.0,
+   "gpu_c": 81.0,
+   "gpu_mhz": 1830.0,
+   "gpu_w": 193.76,
+   "util_pct": 100.0,
+   "slowdown": [
+    "power_cap"
+   ],
+   "tflops": 35.18,
+   "gpu_rpm": 1959,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 8.0,
+   "gpu_c": 82.0,
+   "gpu_mhz": 1755.0,
+   "gpu_w": 182.26,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2000,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 9.0,
+   "gpu_c": 83.0,
+   "gpu_mhz": 1740.0,
+   "gpu_w": 179.83,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 35.18,
+   "gpu_rpm": 2051,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 10.0,
+   "gpu_c": 83.0,
+   "gpu_mhz": 1740.0,
+   "gpu_w": 172.55,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2069,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 11.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1710.0,
+   "gpu_w": 172.45,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2124,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 12.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1680.0,
+   "gpu_w": 164.22,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2153,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 13.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1635.0,
+   "gpu_w": 165.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2162,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 14.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1695.0,
+   "gpu_w": 167.51,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2223,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 15.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1695.0,
+   "gpu_w": 160.81,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2254,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 16.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1695.0,
+   "gpu_w": 160.81,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2276,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 17.0,
+   "gpu_c": 84.0,
+   "gpu_mhz": 1665.0,
+   "gpu_w": 156.57,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2320,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 18.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1650.0,
+   "gpu_w": 156.72,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2354,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 19.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1650.0,
+   "gpu_w": 157.4,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2402,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 20.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1650.0,
+   "gpu_w": 150.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2426,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 21.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1635.0,
+   "gpu_w": 140.4,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2463,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 22.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1665.0,
+   "gpu_w": 152.9,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2515,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 23.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1380.0,
+   "gpu_w": 136.32,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2542,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 24.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1620.0,
+   "gpu_w": 141.97,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2556,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 25.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1635.0,
+   "gpu_w": 144.08,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2597,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 26.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1620.0,
+   "gpu_w": 146.69,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2640,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 27.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1620.0,
+   "gpu_w": 146.57,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2670,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 28.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1635.0,
+   "gpu_w": 142.61,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.79,
+   "gpu_rpm": 2700,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 29.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1575.0,
+   "gpu_w": 136.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2747,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 30.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1605.0,
+   "gpu_w": 143.56,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2811,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 31.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1620.0,
+   "gpu_w": 145.83,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2862,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 32.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1605.0,
+   "gpu_w": 142.73,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2862,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 33.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1605.0,
+   "gpu_w": 143.26,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2879,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 34.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1605.0,
+   "gpu_w": 140.66,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2896,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 35.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.03,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2932,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 36.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 146.6,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 2968,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 37.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.66,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 2968,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 38.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1575.0,
+   "gpu_w": 137.62,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3025,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 39.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1590.0,
+   "gpu_w": 137.28,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3044,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 40.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 135.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3083,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 41.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 140.14,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3124,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 42.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 141.77,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3186,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 43.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.48,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3186,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 44.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 140.59,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.79,
+   "gpu_rpm": 3208,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 45.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.97,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3251,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 46.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 147.43,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3319,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 47.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.09,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3319,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 48.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1470.0,
+   "gpu_w": 114.36,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3366,
+   "gpu_level": 65,
+   "cpu_c": 50,
+   "failsafe": null
+  },
+  {
+   "t": 49.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 149.31,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3390,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 50.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.86,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3414,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 51.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.2,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3463,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 52.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.8,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3463,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 53.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.76,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3489,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 54.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 127.06,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3540,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 55.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 143.34,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3514,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 56.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.98,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3621,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 57.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.78,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3621,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 58.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1440.0,
+   "gpu_w": 140.84,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3676,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 59.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 149.2,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3705,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 60.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.04,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3734,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 61.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.41,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3763,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 62.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.83,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3793,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 63.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 129.18,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 64.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.06,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 65.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.76,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 66.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.86,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 67.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.96,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 68.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.93,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 69.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.84,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 70.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.92,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 71.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.29,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 72.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 129.81,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 73.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.46,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 74.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 146.58,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 75.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.58,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 76.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.36,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 77.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.02,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 78.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 127.78,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 79.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 141.04,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 80.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.23,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 81.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 132.91,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 82.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 145.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 83.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.3,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 84.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1485.0,
+   "gpu_w": 142.37,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 85.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.76,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 86.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.13,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 87.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.5,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 88.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 137.31,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 89.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 144.08,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 90.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 91.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.55,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 92.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 136.89,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 93.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 140.42,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 94.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 146.91,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 95.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 136.36,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 96.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 141.07,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 97.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.41,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 98.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 140.57,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 99.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.94,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 100.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 122.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 101.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 144.03,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 102.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 145.19,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 103.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1485.0,
+   "gpu_w": 128.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 104.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 143.13,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 105.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 143.12,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 106.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 131.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 107.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.6,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 108.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.11,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 109.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 140.87,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 110.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 141.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 111.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.4,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3950,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 112.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.71,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 113.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.49,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 114.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 130.95,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 115.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.74,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 116.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 146.46,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 117.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.72,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 118.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.49,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 119.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 138.59,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 120.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 130.43,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 121.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.19,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 122.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.51,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 123.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.91,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 124.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.4,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 125.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.27,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 126.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.86,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 127.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.33,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 128.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.32,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 129.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.85,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 130.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.01,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 131.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.44,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 132.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.04,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 133.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 142.7,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 134.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.77,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.38,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 135.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.69,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 136.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.86,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 137.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.12,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 138.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.16,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 139.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.96,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 140.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.54,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 141.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.93,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 142.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 137.88,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 143.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.62,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 144.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 145.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 136.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 146.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 134.17,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 147.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.73,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 148.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.04,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 149.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 129.06,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 150.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.62,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 151.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 136.24,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 152.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.92,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 153.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.22,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 154.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 138.61,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 155.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.68,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 156.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.85,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 157.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 138.79,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 158.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.27,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 159.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.71,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 160.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.56,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 161.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.74,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 162.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.1,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 163.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.58,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 164.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.02,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 165.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 166.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 117.93,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 167.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 143.01,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 168.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.62,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 169.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 170.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1485.0,
+   "gpu_w": 122.87,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 171.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.17,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 172.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 122.69,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 173.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.78,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 174.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 132.63,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 175.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.41,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 176.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 142.4,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 177.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 141.66,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 178.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.67,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 179.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 180.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.83,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 181.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.71,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 182.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 138.92,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 183.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 138.68,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 184.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.15,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 185.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.57,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 186.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.9,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 187.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.16,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 188.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.73,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 189.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 135.81,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 190.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 136.47,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 191.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.98,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 192.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.68,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 193.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.78,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 194.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.79,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 195.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 130.28,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 196.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.79,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 197.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.85,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 198.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.06,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 199.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.5,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 200.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.14,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 201.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.45,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 202.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 203.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.93,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 204.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 127.16,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 205.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.55,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 206.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 137.02,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 207.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.52,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 208.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 132.47,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 209.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.02,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 210.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 141.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 211.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 212.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.92,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 213.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.41,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 214.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.03,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 215.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 139.52,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 216.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 129.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 217.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 138.59,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 218.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1425.0,
+   "gpu_w": 133.24,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 219.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.02,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 220.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.03,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 221.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 222.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 123.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 223.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 123.87,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 224.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.54,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 225.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 131.19,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 226.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 138.67,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 227.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 138.56,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 228.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 137.73,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 229.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 138.72,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 230.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 142.5,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 231.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 123.04,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 232.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 233.0,
+   "gpu_c": 85.0,
+   "gpu_mhz": 1455.0,
+   "gpu_w": 116.72,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 234.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.65,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 235.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 136.1,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 236.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.69,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 237.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.13,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 238.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.39,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 239.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 131.43,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 240.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.24,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 241.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 130.39,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 242.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.22,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 243.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 132.98,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 244.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.11,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 245.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.27,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 246.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.13,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 247.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 141.51,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 248.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 144.33,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 249.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.27,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 250.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.53,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 251.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 130.16,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 252.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 136.55,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 253.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.56,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 254.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.43,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 255.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.67,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 256.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 257.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 131.8,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 258.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 129.22,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 259.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 136.1,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 260.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 131.29,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 261.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 262.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 133.81,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 263.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 137.51,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 264.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 136.9,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 265.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 133.2,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 266.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.1,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 267.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.42,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 268.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.38,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 269.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 133.72,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 270.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.11,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 271.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.76,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 272.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.11,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 273.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.91,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 51,
+   "failsafe": null
+  },
+  {
+   "t": 274.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.15,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 275.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.01,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 276.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.62,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 277.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 132.77,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 278.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 124.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 279.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.95,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 280.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 281.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.2,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 282.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 133.61,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 283.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1485.0,
+   "gpu_w": 131.33,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 284.0,
+   "gpu_c": 86.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 135.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 285.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 135.29,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 286.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 137.22,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 287.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1530.0,
+   "gpu_w": 136.54,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 288.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.29,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 289.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1500.0,
+   "gpu_w": 136.61,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 290.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 137.19,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 291.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 135.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 292.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 134.21,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 293.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 134.23,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 54,
+   "failsafe": null
+  },
+  {
+   "t": 294.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.24,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 295.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 137.97,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 296.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.31,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 297.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 138.79,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3854,
+   "gpu_level": 65,
+   "cpu_c": 52,
+   "failsafe": null
+  },
+  {
+   "t": 298.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1515.0,
+   "gpu_w": 135.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 30.78,
+   "gpu_rpm": 3918,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 299.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1545.0,
+   "gpu_w": 135.99,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3824,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  },
+  {
+   "t": 300.0,
+   "gpu_c": 87.0,
+   "gpu_mhz": 1560.0,
+   "gpu_w": 134.64,
+   "util_pct": 100.0,
+   "slowdown": [
+    "thermal_slowdown"
+   ],
+   "tflops": 26.39,
+   "gpu_rpm": 3886,
+   "gpu_level": 65,
+   "cpu_c": 53,
+   "failsafe": null
+  }
+ ]
+}

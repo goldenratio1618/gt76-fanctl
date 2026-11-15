@@ -109,6 +109,24 @@ oscillate. Ubuntu's `thermald` can silently reset PL1, so masking it is recommen
    at 3.8 / 3.9 / 4.0 / 4.1 GHz after 2 minutes, and throttled at 4.2 GHz.
 3. **Save current as my defaults.**
 
+## GPU heat-soak test
+
+`tools/gpu_stress.py` waits for the GPU to cool to 50 °C, then runs back-to-back fp16 matrix
+multiplies for 5 minutes. It records GPU temperature, clock, power, NVIDIA's slowdown reasons,
+fan speed and throughput every second, and summarizes the last 60 s. It leaves fan settings
+alone, so compare runs made with the same fan curve. It needs a Python with CUDA PyTorch:
+
+```bash
+/path/to/venv/bin/python tools/gpu_stress.py gpu.json            # --seconds, --dtype fp32, --size
+```
+
+## Before/after comparisons (e.g. a repaste)
+
+`results/pre-repaste/` holds this machine's baseline: the CPU clock sweep (plot with
+`tools/plot_clock_sweep.py`) with the CPU fan capped at 65 %, and a 5-minute GPU run with both
+fans capped at 65 % (exact curves are in each JSON file). Rerun both tools with the same fan settings and compare the temperatures; under a GPU load the GPU
+gives up clock rather than getting hotter, so compare its sustained clock and TFLOP/s too.
+
 ## Tests
 
 ```bash
