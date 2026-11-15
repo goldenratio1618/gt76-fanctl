@@ -1,0 +1,84 @@
+
+NVIDIA GeForce RTX 2080 Super, fp16 8192x8192 matmul, 300 s
+    t   GPU C   MHz      W  TFLOP/s  fan rpm  CPU C  slowdown
+    5      58  1830    199     39.2     1320     57  power_cap
+   10      61  1830    196     39.5     1493     55  power_cap
+   15      64  1830    197     39.6     1701     55  power_cap
+   20      67  1830    197     39.6     1874     54  power_cap
+   25      68  1800    196     39.6     2060     54  power_cap
+   30      70  1800    198     39.6     2223     53  power_cap
+   35      72  1800    195     35.2     2402     52  power_cap
+   40      73  1785    199     39.6     2583     52  power_cap
+   45      74  1785    193     39.6     2747     52  power_cap
+   50      75  1785    196     39.6     2896     52  power_cap
+   55      75  1785    197     35.2     3083     52  power_cap
+   60      76  1785    200     39.6     3208     52  power_cap
+   65      76  1770    196     39.6     3390     52  power_cap
+   70      76  1770    194     39.6     3567     51  power_cap
+   75      76  1770    198     35.2     3705     50  power_cap
+   80      76  1785    198     39.6     3824     51  power_cap
+   85      76  1770    194     39.6     3854     50  power_cap
+   90      76  1785    195     35.2     3886     50  power_cap
+   95      76  1770    196     39.6     3918     49  power_cap
+  100      75  1785    199     39.6     3824     49  power_cap
+  105      75  1785    194     35.2     3854     50  power_cap
+  110      75  1785    197     39.6     3886     50  power_cap
+  115      75  1785    197     39.6     3886     49  power_cap
+  120      75  1785    196     35.2     3886     49  power_cap
+  125      75  1770    195     39.6     3854     49  power_cap
+  130      75  1785    198     39.6     3854     49  power_cap
+  135      75  1785    194     39.6     3886     49  power_cap
+  140      75  1785    199     35.2     3854     49  power_cap
+  145      75  1785    196     39.6     3854     50  power_cap
+  150      75  1785    197     39.6     3886     49  power_cap
+  155      75  1785    198     35.2     3886     49  power_cap
+  160      75  1785    195     39.6     3854     49  power_cap
+  165      75  1785    197     39.6     3824     50  power_cap
+  170      75  1785    198     35.2     3886     49  power_cap
+  175      75  1785    194     39.6     3886     48  power_cap
+  180      75  1785    196     39.6     3854     49  power_cap
+  185      75  1785    200     35.2     3886     49  power_cap
+  190      75  1785    195     39.6     3854     49  power_cap
+  195      75  1785    196     39.6     3886     49  power_cap
+  200      75  1785    196     35.2     3854     49  power_cap
+  205      75  1770    197     35.2     3918     49  power_cap
+  210      75  1785    196     35.2     3886     49  power_cap
+  215      75  1785    196     39.6     3824     50  power_cap
+  220      75  1770    194     39.6     3854     49  power_cap
+  225      75  1785    194     39.6     3854     49  power_cap
+  230      75  1785    199     39.6     3854     49  power_cap
+  235      75  1800    202     35.2     3886     50  power_cap
+  240      75  1815    198     35.2     3886     49  power_cap
+  245      75  1785    195     39.6     3886     50  power_cap
+  250      75  1785    198     35.2     3886     50  power_cap
+  255      75  1785    195     39.6     3886     50  power_cap
+  260      75  1800    189     39.6     3886     49  power_cap
+  265      75  1785    198     35.2     3854     49  power_cap
+  270      74  1815    194     30.8     3854     52  power_cap
+  275      75  1800    197     39.6     3886     49  power_cap
+  280      74  1830    190     35.2     3854     51  power_cap
+  285      75  1815    193     39.6     3886     50  power_cap
+  290      75  1800    191     35.2     3886     50  power_cap
+  295      75  1815    198     35.2     3886     51  power_cap
+{
+  "gpu": "NVIDIA GeForce RTX 2080 Super",
+  "dtype": "fp16",
+  "size": 8192,
+  "seconds": 299.1,
+  "stop_reason": null,
+  "last60s": {
+    "gpu_c": 74.9,
+    "gpu_mhz": 1804.5,
+    "gpu_w": 195.8,
+    "tflops": 36.0,
+    "gpu_rpm": 3874.3,
+    "cpu_c": 50.5,
+    "frac_power_cap": 1.0,
+    "frac_thermal_slowdown": 0.0,
+    "frac_hw_thermal_slowdown": 0.0,
+    "frac_hw_slowdown": 0.0
+  },
+  "peak_gpu_c": 76.0,
+  "gpu_c_slope_per_min_last60s": 0.0
+}
+wrote results/post-repaste/gpu_stress.json

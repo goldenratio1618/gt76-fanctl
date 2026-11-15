@@ -1,0 +1,18 @@
+Fan settings for every step: advanced [20, 40, 50, 60, 65, 65, 65]
+
+=== 4.0 GHz: cooling to 50 C ...
+    load for 120 s
+    t=   11s pkg 69 C (hottest core 69) fan 2950 rpm 121.7 W 4000 MHz
+    t=   20s pkg 71 C (hottest core 71) fan 3593 rpm 122.7 W 4000 MHz
+    t=   31s pkg 73 C (hottest core 73) fan 3621 rpm 121.9 W 4000 MHz
+    t=   40s pkg 74 C (hottest core 74) fan 3621 rpm 121.3 W 4000 MHz
+    t=   51s pkg 75 C (hottest core 75) fan 3593 rpm 122.9 W 4000 MHz
+    t=   60s pkg 77 C (hottest core 76) fan 3918 rpm 123.9 W 4000 MHz
+    t=   71s pkg 77 C (hottest core 78) fan 3886 rpm 123.9 W 4000 MHz
+    t=   80s pkg 78 C (hottest core 78) fan 3886 rpm 123.5 W 4000 MHz
+    t=   91s pkg 78 C (hottest core 79) fan 3886 rpm 123.7 W 4000 MHz
+    t=  100s pkg 80 C (hottest core 79) fan 3886 rpm 125.1 W 4000 MHz
+    t=  111s pkg 80 C (hottest core 80) fan 3886 rpm 124.6 W 4000 MHz
+    t=  120s pkg 80 C (hottest core 80) fan 3918 rpm 123.9 W 4000 MHz
+    -> final 80.0 C, slope 4.1 C/min, 124.0 W, 437.9 GFLOP/s
+Restored original settings: {'max_clock_mhz': 4000, 'pl1_w': 145, 'pl2_w': 300, 'pl1_window_s': 56, 'fan_mode': 'advanced', 'cpu_curve': [20, 40, 50, 60, 65, 65, 65], 'gpu_curve': [20, 30, 45, 60, 65, 65, 65]}
