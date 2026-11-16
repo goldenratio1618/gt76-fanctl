@@ -51,6 +51,9 @@ Fans ramp gradually: about 45 s for the CPU fan and 90 s for the GPU fan. Measur
 
 Levels between 1 and 20 % behave like 20 %, levels above 90 % behave like 90 %, and 0 % stops the fan.
 
+The full register map, including how MSI Center's Windows settings map to EC registers, is in
+[docs/ec-map.md](docs/ec-map.md).
+
 **Every EC read costs two ACPI events.** After each host read of any register, this EC raises
 ACPI event GPE 0x13 twice with query 0xD1, a GPU performance notification. Reading the whole
 256-byte map (msi-ec's `ec_dump`) twice a second kept about 1,000 events/s and roughly 40 % of a
