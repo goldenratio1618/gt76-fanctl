@@ -73,6 +73,13 @@ class FanctldTest(unittest.TestCase):
             self.ec[addr] = value
             self.sync_ec()
         self.m.ec_set = fake_ec_set
+        self.reads = []
+
+        def fake_ec_get(addr):
+            self.reads.append(addr)
+            return self.ec[addr]
+        self.m.ec_get = fake_ec_get
+        self.m.LIVE_MAX_AGE = 0  # tests change temperatures between passes
         self.c = self.m.Controller()
 
     def tearDown(self):
@@ -144,6 +151,21 @@ class FanctldTest(unittest.TestCase):
             self.c.enforce_once()
         self.assertIsNotNone(self.c.failsafe)
         self.assertEqual(self.ec[0xF4], 0x0C)
+
+    def test_ec_reads_are_few(self):
+        # Every EC read makes this EC raise two ACPI events, so steady-state reads must stay small.
+        self.c.handle({"cmd": "apply", "settings": {"fan_mode": "advanced", "cpu_curve": [30] * 7}})
+        self.reads.clear()
+        self.c.enforce_once()
+        self.assertLessEqual(len(self.reads), len(self.m.EC_STATE_REGS) + len(self.m.EC_LIVE_REGS))
+        self.reads.clear()
+        self.c.handle({"cmd": "status"})
+        self.assertLessEqual(len(self.reads), len(self.m.EC_LIVE_REGS))
+        self.m.LIVE_MAX_AGE = 60  # a recent reading is shared rather than re-read
+        self.c.handle({"cmd": "status"})
+        self.reads.clear()
+        self.c.handle({"cmd": "status"})
+        self.assertEqual(self.reads, [])
 
     def test_wrong_firmware_blocks_ec_writes(self):
         self.ec[0xA0:0xAC] = b"17H1EMS1.104"

@@ -51,6 +51,13 @@ Fans ramp gradually: about 45 s for the CPU fan and 90 s for the GPU fan. Measur
 
 Levels between 1 and 20 % behave like 20 %, levels above 90 % behave like 90 %, and 0 % stops the fan.
 
+**Every EC read costs two ACPI events.** After each host read of any register, this EC raises
+ACPI event GPE 0x13 twice with query 0xD1, a GPU performance notification. Reading the whole
+256-byte map (msi-ec's `ec_dump`) twice a second kept about 1,000 events/s and roughly 40 % of a
+CPU thread busy in the kernel's `irq/9-acpi`. The service therefore reads only the registers it
+needs, one at a time through `ec_get`, and shares recent readings: about 38 events/s with the app
+open. Avoid polling `ec_dump` in your own tools.
+
 The CPU (i9-10900K) shares one clock across all cores; package power scales roughly with the
 cube of clock (about 100 W at 3.7 GHz up to about 147 W at 4.2 GHz under full AVX2 load).
 Keep PL2 well above real draw: a PL2 near actual draw is enforced every 2.4 ms and makes the clock

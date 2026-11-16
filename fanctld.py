@@ -14,6 +14,11 @@ fans to the factory curve if temperatures get dangerous while a custom curve is 
 EC access goes through the msi-ec driver's debug interface
 (/sys/devices/platform/msi-ec/debug), which works under Secure Boot when msi-ec is a
 signed module loaded with debug=1.
+
+This EC raises two ACPI events (GPE 0x13, query 0xD1: a GPU performance notification) after
+EVERY host read, each costing the kernel an EC query and an ACPI method call. Reading the
+whole 256-byte map twice a second kept ~1,000 events/s and ~40% of a CPU thread busy, so
+the service reads single registers, only the ones it needs, and shares recent readings.
 """
 import copy
 import grp
@@ -47,6 +52,14 @@ FAN_MODE = 0xF4                            # EC follows the curves only in advan
 FAN_MODES = {"auto": 0x0C, "advanced": 0x8C}
 CPU_TACH, GPU_TACH = 0xCC, 0xCA            # 16-bit big-endian tach period
 RPM_CONST = 478000                         # rpm = RPM_CONST / period
+
+# Registers read for each purpose (every read costs two ACPI events; see the module docstring)
+EC_GUARD_REGS = [*range(EC_FW_ADDR, EC_FW_ADDR + 12), *range(CPU_THRESH, CPU_THRESH + 6),
+                 *range(GPU_THRESH, GPU_THRESH + 6)]                       # before any write
+EC_STATE_REGS = [*range(CPU_CURVE, CPU_CURVE + 7), *range(GPU_CURVE, GPU_CURVE + 7), FAN_MODE]
+EC_LIVE_REGS = [CPU_TEMP, GPU_TEMP, CPU_LEVEL, GPU_LEVEL, FAN_MODE,
+                CPU_TACH, CPU_TACH + 1, GPU_TACH, GPU_TACH + 1]
+LIVE_MAX_AGE = 0.9                         # seconds a live reading is shared between callers
 
 # --- Settings ----------------------------------------------------------------------
 # Values read from this machine before any changes were made.
@@ -99,12 +112,22 @@ def ec_available():
     return os.path.isdir(MSI_EC)
 
 
-def read_ec():
-    rows = read_text(f"{MSI_EC}/ec_dump").splitlines()[2:18]
-    data = bytes(int(b, 16) for r in rows for b in r.split("|")[2].split())
-    if len(data) != 256:
-        raise OSError("unexpected ec_dump format")
-    return data
+_ec_get_lock = threading.Lock()  # msi-ec's ec_get keeps one global address
+
+
+def ec_get(addr):
+    """Read one EC register through msi-ec's ec_get (select the address, then read it)."""
+    with _ec_get_lock:
+        write_text(f"{MSI_EC}/ec_get", f"{addr:02x}")
+        return int(read_text(f"{MSI_EC}/ec_get"), 16)
+
+
+def read_ec(addrs):
+    """Read just the given registers; returns a 256-byte map with only those filled in."""
+    ec = bytearray(256)
+    for a in addrs:
+        ec[a] = ec_get(a)
+    return ec
 
 
 def ec_set(addr, value):
@@ -114,7 +137,7 @@ def ec_set(addr, value):
 def ec_guard(ec):
     """Refuse EC writes unless this is the EC layout this service was written for."""
     if ec[EC_FW_ADDR:EC_FW_ADDR + 12] != EC_FW:
-        raise RuntimeError(f"EC firmware {ec[EC_FW_ADDR:EC_FW_ADDR + 12]!r} is not {EC_FW!r}")
+        raise RuntimeError(f"EC firmware {bytes(ec[EC_FW_ADDR:EC_FW_ADDR + 12])!r} is not {EC_FW!r}")
     if list(ec[CPU_THRESH:CPU_THRESH + 6]) != EXPECTED_CPU_THRESH or \
             list(ec[GPU_THRESH:GPU_THRESH + 6]) != EXPECTED_GPU_THRESH:
         raise RuntimeError("EC fan-curve thresholds are not where expected")
@@ -135,6 +158,8 @@ class Controller:
         self.errors = []          # problems from the last apply
         self.hot_samples = 0
         self.last_energy = None   # (energy_uj, time) for package power
+        self.live_ec = None       # (time, map with EC_LIVE_REGS) shared by status and failsafe
+        self.thresholds = None    # (cpu, gpu) band thresholds, verified by the last guard read
 
     # Settings files
     def _load_defaults(self):
@@ -200,8 +225,9 @@ class Controller:
             errors.append("fan control unavailable: msi-ec debug interface missing")
             return errors
         try:
-            ec = read_ec()
+            ec = read_ec(EC_GUARD_REGS + EC_STATE_REGS)
             ec_guard(ec)
+            self.thresholds = (list(ec[CPU_THRESH:CPU_THRESH + 6]), list(ec[GPU_THRESH:GPU_THRESH + 6]))
             for base, curve in ((CPU_CURVE, s["cpu_curve"]), (GPU_CURVE, s["gpu_curve"])):
                 for i, v in enumerate(curve):
                     if ec[base + i] != v:
@@ -227,7 +253,7 @@ class Controller:
             out.append("pl1_window_s")
         if os.path.isdir(MSI_EC):
             try:
-                ec = read_ec()
+                ec = read_ec(EC_STATE_REGS)
                 if list(ec[CPU_CURVE:CPU_CURVE + 7]) != s["cpu_curve"] or \
                         list(ec[GPU_CURVE:GPU_CURVE + 7]) != s["gpu_curve"] or \
                         ec[FAN_MODE] != FAN_MODES[s["fan_mode"]]:
@@ -256,7 +282,7 @@ class Controller:
         with self.lock:
             if self.live["fan_mode"] == "advanced" and not self.failsafe and os.path.isdir(MSI_EC):
                 try:
-                    ec = read_ec()
+                    ec = self.read_live_ec()
                     hot = ec[CPU_TEMP] >= FAILSAFE_CPU_C or ec[GPU_TEMP] >= FAILSAFE_GPU_C
                     self.hot_samples = self.hot_samples + 1 if hot else 0
                     if self.hot_samples >= FAILSAFE_SAMPLES:
@@ -279,6 +305,13 @@ class Controller:
                 log.exception("enforcement pass failed")
             time.sleep(ENFORCE_INTERVAL)
 
+    def read_live_ec(self):
+        """Temperatures, fan levels, tachs and mode; reused if read within LIVE_MAX_AGE."""
+        now = time.monotonic()
+        if self.live_ec is None or now - self.live_ec[0] > LIVE_MAX_AGE:
+            self.live_ec = (now, read_ec(EC_LIVE_REGS))
+        return self.live_ec[1]
+
     def hw_status(self):
         hw = {}
         cpus = cpu_dirs()
@@ -298,13 +331,16 @@ class Controller:
             self.last_energy = (energy, now)
         if os.path.isdir(MSI_EC):
             try:
-                ec = read_ec()
+                if self.thresholds is None:  # normally filled by the guard read at the first apply
+                    t = read_ec(EC_GUARD_REGS)
+                    self.thresholds = (list(t[CPU_THRESH:CPU_THRESH + 6]), list(t[GPU_THRESH:GPU_THRESH + 6]))
+                ec = self.read_live_ec()
                 hw.update(
                     cpu_temp=ec[CPU_TEMP], gpu_temp=ec[GPU_TEMP],
                     cpu_rpm=rpm(ec, CPU_TACH), gpu_rpm=rpm(ec, GPU_TACH),
                     cpu_level=ec[CPU_LEVEL], gpu_level=ec[GPU_LEVEL],
-                    cpu_thresholds=list(ec[CPU_THRESH:CPU_THRESH + 6]),
-                    gpu_thresholds=list(ec[GPU_THRESH:GPU_THRESH + 6]),
+                    cpu_thresholds=self.thresholds[0],
+                    gpu_thresholds=self.thresholds[1],
                     fan_mode={v: k for k, v in FAN_MODES.items()}.get(ec[FAN_MODE], hex(ec[FAN_MODE])),
                 )
             except OSError as e:
