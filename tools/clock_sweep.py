@@ -98,20 +98,24 @@ def run_step(mhz, seconds, cool_to, ct, original):
     stress = subprocess.Popen([sys.executable, STRESS, "--minutes", str(seconds / 60), "--interval", "10"],
                               stdout=subprocess.PIPE, text=True, start_new_session=True)
     t0, samples, stop_reason = time.time(), [], None
-    while stress.poll() is None:
-        time.sleep(1)
-        s = sample(ct, t0, base_throttle)
-        samples.append(s)
-        if s["t"] % 10 < 1:
-            print(f"    t={s['t']:5.0f}s pkg {s['pkg_c']:.0f} C (hottest core {s['hottest_core_c']:.0f}) "
-                  f"fan {s['cpu_rpm']} rpm {s['pkg_w']} W {s['avg_mhz']} MHz", flush=True)
-        if s["failsafe"]:
-            stop_reason = "service thermal failsafe tripped (CPU >= 95 C)"
-        elif s["hottest_core_c"] >= THROTTLE_CORE_C or s["throttle_events"] > 0:
-            stop_reason = f"thermal throttling (hottest core {s['hottest_core_c']:.0f} C, {s['throttle_events']} throttle events)"
-        if stop_reason:
-            stress.terminate()
-            break
+    try:
+        while stress.poll() is None:
+            time.sleep(1)
+            s = sample(ct, t0, base_throttle)
+            samples.append(s)
+            if s["t"] % 10 < 1:
+                print(f"    t={s['t']:5.0f}s pkg {s['pkg_c']:.0f} C (hottest core {s['hottest_core_c']:.0f}) "
+                      f"fan {s['cpu_rpm']} rpm {s['pkg_w']} W {s['avg_mhz']} MHz", flush=True)
+            if s["failsafe"]:
+                stop_reason = "service thermal failsafe tripped (CPU >= 95 C)"
+            elif s["hottest_core_c"] >= THROTTLE_CORE_C or s["throttle_events"] > 0:
+                stop_reason = f"thermal throttling (hottest core {s['hottest_core_c']:.0f} C, {s['throttle_events']} throttle events)"
+            if stop_reason:
+                stress.terminate()
+                break
+    except BaseException:  # Ctrl+C or an error mid-step: don't leave the load running
+        os.killpg(stress.pid, signal.SIGKILL)
+        raise
     try:
         out = stress.communicate(timeout=15)[0]
     except subprocess.TimeoutExpired:  # backstop: kill the whole load, workers included

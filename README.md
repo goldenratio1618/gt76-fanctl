@@ -106,7 +106,9 @@ oscillate. Ubuntu's `thermald` can silently reset PL1, so masking it is recommen
    python3 tools/clock_sweep.py sweep.json 3800 3900 4000 4100 4200
    ```
    With the CPU fan capped at 65 % (about 3,900 rpm), this machine reached 76 / 83 / 87 / 92 °C
-   at 3.8 / 3.9 / 4.0 / 4.1 GHz after 2 minutes, and throttled at 4.2 GHz.
+   at 3.8 / 3.9 / 4.0 / 4.1 GHz after 2 minutes, and throttled at 4.2 GHz. After a repaste
+   (`results/post-repaste/`), 5-minute runs settled at 76 / 81 / 84 / 89 / 93 °C at
+   3.8–4.2 GHz with no throttling. `tools/compare_sweeps.py` charts two sweeps side by side.
 3. **Save current as my defaults.**
 
 ## GPU heat-soak test
