@@ -192,6 +192,50 @@ class FanctldTest(unittest.TestCase):
         self.assertEqual(hw["fan_mode"], "auto")
         self.assertEqual(hw["cpu_thresholds"], [50, 61, 68, 75, 80, 90])
 
+    def fake_lights(self):
+        """Replace the USB light-bar controller with a recorder; returns the list of shows."""
+        shows, lb = [], self.m.lightbar
+        self.light_ident = "/sys/devices/x/0003:1038:1130.0003"
+
+        class FakeCtl:
+            def __init__(self, path): pass
+            def show(self, front, sides, brightness): shows.append((front, sides, brightness))
+            def close(self): pass
+        lb.find_device = lambda: "/dev/hidraw2"
+        lb.device_identity = lambda path: self.light_ident
+        lb.Controller = FakeCtl
+        return shows
+
+    def test_lights_saved_and_resent_after_sleep_or_replug(self):
+        shows = self.fake_lights()
+        self.c.lights_pass()
+        self.assertEqual(shows, [])  # nothing chosen yet: controller left alone
+        st = self.c.handle({"cmd": "lights", "lights": {"name": "Ocean", "stops": [[0, 0, 255], [0, 255, 255]],
+                                                        "sides": [0, 0, 255], "brightness": 128}})
+        self.assertEqual(st["lights"]["name"], "Ocean")
+        self.assertEqual(len(shows), 1)
+        front, sides, brightness = shows[0]
+        self.assertEqual((front[0], front[-1], sides, brightness), ((0, 0, 255), (0, 255, 255), (0, 0, 255), 128))
+        self.assertEqual(self.m.Controller().lights["name"], "Ocean")  # saved for the next boot
+
+        self.c.lights_pass()
+        self.assertEqual(len(shows), 1)  # same controller, no sleep: not re-sent
+        slept = self.c.sleep_clock
+        self.c._slept = lambda: slept + 30  # 30 s asleep
+        for _ in range(self.m.LIGHTS_RESUME_PASSES + 2):
+            self.c.lights_pass()
+        self.assertEqual(len(shows), 1 + self.m.LIGHTS_RESUME_PASSES)
+        self.light_ident = "/sys/devices/x/0003:1038:1130.0009"  # re-enumerated
+        self.c.lights_pass()
+        self.assertEqual(len(shows), 2 + self.m.LIGHTS_RESUME_PASSES)
+
+    def test_lights_validation(self):
+        self.fake_lights()
+        for bad in ({"stops": [], "sides": [0, 0, 0]}, {"stops": [[0, 0, 256]], "sides": [0, 0, 0]},
+                    {"stops": [[0, 0, 0]], "sides": [0, 0]}, {"stops": [[0, 0, 0]] * 9, "sides": [0, 0, 0]}):
+            with self.assertRaises(ValueError, msg=bad):
+                self.c.handle({"cmd": "lights", "lights": bad})
+
     def test_socket_roundtrip(self):
         self.m.SOCKET_GROUP = ""
         threading.Thread(target=self.m.serve, args=(self.c,), daemon=True).start()

@@ -1,24 +1,67 @@
 #!/usr/bin/env python3
-"""GT76 Fan Control: desktop UI for gt76-fanctld (fan curves, CPU clock cap, temperatures).
+"""GT76 Fan Control: desktop UI for gt76-fanctld (fan curves, CPU clock cap, temperatures, light bars).
 
 Runs as the normal user; all hardware changes go through the root service's socket.
 """
 import html
+import importlib.util
 import json
 import os
 import socket
 import sys
 
-from PyQt6.QtCore import Qt, QTimer
-from PyQt6.QtGui import QFont
+from PyQt6.QtCore import QRectF, Qt, QTimer
+from PyQt6.QtGui import QColor, QFont, QPainter
 from PyQt6.QtWidgets import (
-    QApplication, QButtonGroup, QGridLayout, QGroupBox, QHBoxLayout, QLabel, QMainWindow,
-    QMessageBox, QPushButton, QRadioButton, QSlider, QSpinBox, QVBoxLayout, QWidget,
+    QApplication, QButtonGroup, QColorDialog, QGridLayout, QGroupBox, QHBoxLayout, QLabel,
+    QMainWindow, QMessageBox, QPushButton, QRadioButton, QSlider, QSpinBox, QTabWidget,
+    QVBoxLayout, QWidget,
 )
 
 SOCKET_PATH = os.environ.get("FANCTL_SOCKET", "/run/gt76-fanctl.sock")
 CLOCK_MIN_MHZ = 1000
 BANDS = 7
+
+
+def _load_lightbar():
+    """tools/lightbar.py: beside this file when installed, under tools/ in the repository."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    for path in (f"{here}/lightbar.py", f"{here}/tools/lightbar.py"):
+        if os.path.exists(path):
+            spec = importlib.util.spec_from_file_location("lightbar", path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            return mod
+    raise ImportError("lightbar.py not found")
+
+
+lightbar = _load_lightbar()
+
+# Light-bar presets: name, front-bar color stops (left to right), side-bar color.
+LIGHT_PRESETS = [
+    ("Red", ["ff0000"], "ff0000"),
+    ("Ember", ["ff1800", "ff7000", "ff1800"], "ff3000"),
+    ("Sunset", ["ff4000", "ff0058", "7000ff"], "ff4000"),
+    ("Ocean", ["0018ff", "00b0ff", "0018ff"], "0050ff"),
+    ("Aurora", ["00ff60", "00c0ff", "8000ff"], "00ff60"),
+    ("Synthwave", ["ff00c0", "6000ff", "00e0ff"], "ff00c0"),
+    ("Toxic", ["40ff00", "00ff60", "40ff00"], "40ff00"),
+    ("Rainbow", ["ff0000", "ff8000", "ffff00", "00ff00", "0080ff", "8000ff"], "ffffff"),
+    ("White", ["ffffff"], "ffffff"),
+    ("Warm white", ["ff9a40"], "ff9a40"),
+    ("Off", ["000000"], "000000"),
+]
+
+
+def hex_rgb(h):
+    return [int(h[i:i + 2], 16) for i in (0, 2, 4)]
+
+
+def css_gradient(stops):
+    if len(stops) == 1:
+        return f"rgb({','.join(map(str, stops[0]))})"
+    parts = ", ".join(f"stop:{i / (len(stops) - 1):.3f} rgb({','.join(map(str, c))})" for i, c in enumerate(stops))
+    return f"qlineargradient(x1:0, y1:0, x2:1, y2:0, {parts})"
 
 
 def request(req, timeout=5):
@@ -104,6 +147,179 @@ class CurveRow:
             lab.setText(f"<b>▶ {text}</b>" if i == active else text)
 
 
+class LightPreview(QWidget):
+    """Draws the 25 front-bar zones between the two side bars, as the controller will show them."""
+
+    def __init__(self):
+        super().__init__()
+        self.front, self.sides, self.brightness = [(0, 0, 0)] * lightbar.FRONT_ZONES, (0, 0, 0), 255
+        self.setMinimumHeight(54)
+
+    def set_colors(self, front, sides, brightness):
+        self.front, self.sides, self.brightness = front, sides, brightness
+        self.update()
+
+    def paintEvent(self, _):
+        p = QPainter(self)
+        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+        k = self.brightness / 255
+        col = lambda c: QColor(*(round(v * k) for v in c))
+        w, h = self.width(), self.height()
+        side_w, gap = 18, 6
+        p.setPen(Qt.PenStyle.NoPen)
+        p.setBrush(QColor(30, 30, 30))
+        p.drawRoundedRect(QRectF(0, 0, w, h), 6, 6)
+        for x in (gap, w - gap - side_w):
+            p.setBrush(col(self.sides))
+            p.drawRoundedRect(QRectF(x, gap, side_w, h - 2 * gap), 3, 3)
+        x0, x1 = 2 * gap + side_w, w - 2 * gap - side_w
+        zw = (x1 - x0) / len(self.front)
+        for i, c in enumerate(self.front):
+            p.setBrush(col(c))
+            p.drawRect(QRectF(x0 + i * zw, h / 2 - 7, zw + 0.5, 14))
+
+
+class LightsTab(QWidget):
+    MAX_STOPS = 8
+
+    def __init__(self, window):
+        super().__init__()
+        self.app_window = window
+        self.stops, self.sides, self.name = [[255, 0, 0]], [255, 0, 0], "Custom"
+        v = QVBoxLayout(self)
+
+        presets = QGroupBox("Presets")
+        g = QGridLayout(presets)
+        for i, (name, stops, sides) in enumerate(LIGHT_PRESETS):
+            b = QPushButton(name)
+            b.setMinimumHeight(44)
+            rgb = [hex_rgb(c) for c in stops]
+            dark = sum(rgb[0]) < 200 and len(rgb) == 1
+            b.setStyleSheet(f"QPushButton {{ background: {css_gradient(rgb)}; color: {'white' if dark else 'black'};"
+                            " font-weight: bold; border-radius: 6px; border: 1px solid #555; }"
+                            " QPushButton:hover { border: 2px solid palette(highlight); }")
+            b.clicked.connect(lambda _, n=name, st=rgb, sd=hex_rgb(sides): self.choose(n, st, sd))
+            g.addWidget(b, i // 4, i % 4)
+        v.addWidget(presets)
+
+        custom = QGroupBox("Custom")
+        c = QVBoxLayout(custom)
+        row = QHBoxLayout()
+        row.addWidget(QLabel("Front bar, left to right:"))
+        self.stop_box = QHBoxLayout()
+        row.addLayout(self.stop_box)
+        self.add_stop = QPushButton("+")
+        self.add_stop.setToolTip("Add a color")
+        self.add_stop.clicked.connect(lambda: self.edit_stops(+1))
+        self.remove_stop = QPushButton("−")
+        self.remove_stop.setToolTip("Remove the last color")
+        self.remove_stop.clicked.connect(lambda: self.edit_stops(-1))
+        for b in (self.add_stop, self.remove_stop):
+            b.setFixedWidth(32)
+            row.addWidget(b)
+        row.addStretch()
+        row.addWidget(QLabel("Side bars:"))
+        self.sides_button = QPushButton()
+        self.sides_button.setFixedSize(56, 30)
+        self.sides_button.clicked.connect(self.pick_sides)
+        row.addWidget(self.sides_button)
+        c.addLayout(row)
+        bright = QHBoxLayout()
+        bright.addWidget(QLabel("Brightness:"))
+        self.brightness = QSlider(Qt.Orientation.Horizontal)
+        self.brightness.setRange(5, 255)
+        self.brightness.setValue(255)
+        self.bright_label = QLabel()
+        self.bright_label.setMinimumWidth(44)
+        self.brightness.valueChanged.connect(self.redraw)
+        bright.addWidget(self.brightness, 1)
+        bright.addWidget(self.bright_label)
+        c.addLayout(bright)
+        self.preview = LightPreview()
+        c.addWidget(self.preview)
+        apply = QPushButton("Apply colors")
+        apply.clicked.connect(lambda: self.send())
+        c.addWidget(apply, alignment=Qt.AlignmentFlag.AlignRight)
+        v.addWidget(custom)
+
+        self.now = QLabel()
+        self.now.setWordWrap(True)
+        v.addWidget(self.now)
+        note = QLabel("Your choice is saved and restored at every boot and after sleep. The colors are not "
+                      "written to the controller's own memory, so Windows keeps its own lighting.")
+        note.setWordWrap(True)
+        v.addWidget(note)
+        v.addStretch()
+        self.redraw()
+
+    def swatch(self, button, rgb):
+        button.setStyleSheet(f"background: rgb({','.join(map(str, rgb))}); border: 1px solid #555; border-radius: 4px;")
+
+    def redraw(self):
+        while self.stop_box.count():
+            self.stop_box.takeAt(0).widget().deleteLater()
+        for i, rgb in enumerate(self.stops):
+            b = QPushButton()
+            b.setFixedSize(44, 30)
+            b.setToolTip("Click to change")
+            self.swatch(b, rgb)
+            b.clicked.connect(lambda _, i=i: self.pick_stop(i))
+            self.stop_box.addWidget(b)
+        self.add_stop.setEnabled(len(self.stops) < self.MAX_STOPS)
+        self.remove_stop.setEnabled(len(self.stops) > 1)
+        self.swatch(self.sides_button, self.sides)
+        self.bright_label.setText(f"{round(self.brightness.value() / 255 * 100)} %")
+        self.preview.set_colors(lightbar.gradient([tuple(c) for c in self.stops]), tuple(self.sides),
+                                self.brightness.value())
+
+    def pick(self, rgb, title):
+        c = QColorDialog.getColor(QColor(*rgb), self, title)
+        return [c.red(), c.green(), c.blue()] if c.isValid() else None
+
+    def pick_stop(self, i):
+        rgb = self.pick(self.stops[i], f"Front-bar color {i + 1}")
+        if rgb:
+            self.stops[i], self.name = rgb, "Custom"
+            self.redraw()
+
+    def pick_sides(self):
+        rgb = self.pick(self.sides, "Side-bar color")
+        if rgb:
+            self.sides, self.name = rgb, "Custom"
+            self.redraw()
+
+    def edit_stops(self, d):
+        if d > 0:
+            self.stops.append(list(self.stops[-1]))
+        else:
+            self.stops.pop()
+        self.name = "Custom"
+        self.redraw()
+
+    def choose(self, name, stops, sides):
+        self.name, self.stops, self.sides = name, [list(c) for c in stops], list(sides)
+        self.redraw()
+        self.send()
+
+    def send(self):
+        lights = {"name": self.name, "stops": self.stops, "sides": self.sides,
+                  "brightness": self.brightness.value()}
+        self.app_window.send({"cmd": "lights", "lights": lights}, f"Light bars set to {self.name}.")
+
+    def load(self, lights):
+        if lights:
+            self.name, self.stops, self.sides = lights["name"], [list(c) for c in lights["stops"]], list(lights["sides"])
+            self.brightness.setValue(lights["brightness"])
+            self.redraw()
+
+    def show_status(self, st):
+        l = st.get("lights")
+        text = f"Now showing: <b>{html.escape(l['name'])}</b>" if l else "Not set yet: pick a preset."
+        if st.get("lights_error"):
+            text += f"  <span style='color:#c0392b'>{html.escape(st['lights_error'])}</span>"
+        self.now.setText(text)
+
+
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -111,8 +327,15 @@ class Window(QMainWindow):
         self.status = None
         self.loaded = False
         root = QWidget()
-        layout = QVBoxLayout(root)
+        outer = QVBoxLayout(root)
         self.setCentralWidget(root)
+        self.tabs = QTabWidget()
+        outer.addWidget(self.tabs)
+        fan_tab = QWidget()
+        layout = QVBoxLayout(fan_tab)
+        self.tabs.addTab(fan_tab, "Fans && clock")
+        self.lights_tab = LightsTab(self)
+        self.tabs.addTab(self.lights_tab, "Lights")
 
         # Live readings
         now = QGroupBox("Now")
@@ -189,7 +412,7 @@ class Window(QMainWindow):
         layout.addWidget(self.defaults_label)
         self.message = QLabel()
         self.message.setWordWrap(True)
-        layout.addWidget(self.message)
+        outer.addWidget(self.message)
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.refresh)
@@ -270,6 +493,7 @@ class Window(QMainWindow):
         live = self.status["live"]
         if not self.loaded:
             self.load_controls(live)
+            self.lights_tab.load(self.status.get("lights"))
             self.loaded = True
         elif live != self.loaded_live and self.controls_unedited():
             self.load_controls(live)  # changed elsewhere (another client or a script); follow it
@@ -295,6 +519,7 @@ class Window(QMainWindow):
         r["clock"].setText(f"{avg} / {hw['max_clock_mhz'] / 1000:.1f} GHz")
         r["power"].setText(f"{hw['pkg_w']:.0f} W" if hw.get("pkg_w") is not None else "–")
         self.defaults_label.setText(f"<small>My defaults: {self.describe(st['defaults'])}</small>")
+        self.lights_tab.show_status(st)
         if st.get("failsafe"):
             self.show_error(st["failsafe"])
         elif st.get("errors"):

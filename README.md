@@ -72,8 +72,14 @@ oscillate. Ubuntu's `thermald` can silently reset PL1, so masking it is recommen
 The front and side light bars are on a SteelSeries USB lighting controller (USB `1038:1130`), not
 the EC. It speaks the protocol documented for the MSI GE66 Raider
 ([Negraldi/ge66-lighting](https://github.com/Negraldi/ge66-lighting)). On this machine the front bar
-is zones 0–24, left to right, and both side bars share zone 25. `install.sh` adds a udev rule
-giving the logged-in user access, so no root is needed:
+is zones 0–24, left to right, and both side bars share zone 25.
+
+The app's **Lights** tab has presets and a custom gradient editor. The service saves the choice to
+`/etc/gt76-fanctl/lights.json` and re-sends it at boot, when the controller reappears, and for
+about 10 s after every resume: the controller loses its colors during sleep without disconnecting.
+
+For scripts, `tools/lightbar.py` sets the bars directly (until the next sleep). `install.sh` adds a
+udev rule giving the logged-in user access, so no root is needed:
 
 ```bash
 python3 tools/lightbar.py color 00aaff                       # one color everywhere

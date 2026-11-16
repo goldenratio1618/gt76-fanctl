@@ -7,6 +7,7 @@ Clients (the GUI) talk to it over a Unix socket, one JSON object per line:
   {"cmd": "apply", "settings": {...partial settings...}}
   {"cmd": "restore", "which": "factory" | "defaults"}
   {"cmd": "save_defaults"}
+  {"cmd": "lights", "lights": {"name", "stops", "sides", "brightness"}}   (saved; null = leave alone)
 Every hardware write is validated here. A background loop re-applies the requested
 settings if anything drifts (EC reset, resume from sleep, other tools), and reverts the
 fans to the factory curve if temperatures get dangerous while a custom curve is active.
@@ -19,9 +20,15 @@ This EC raises two ACPI events (GPE 0x13, query 0xD1: a GPU performance notifica
 EVERY host read, each costing the kernel an EC query and an ACPI method call. Reading the
 whole 256-byte map twice a second kept ~1,000 events/s and ~40% of a CPU thread busy, so
 the service reads single registers, only the ones it needs, and shares recent readings.
+
+The light bars (a SteelSeries USB controller, see tools/lightbar.py) lose their colors during
+sleep without re-enumerating, so the service re-sends the saved colors at boot, whenever the
+controller reappears, and for a few passes after each resume (detected as a jump between
+CLOCK_BOOTTIME, which counts sleep, and CLOCK_MONOTONIC, which doesn't).
 """
 import copy
 import grp
+import importlib.util
 import json
 import logging
 import os
@@ -80,6 +87,22 @@ INITIAL_DEFAULTS = dict(FACTORY, max_clock_mhz=3900, pl1_w=135, pl1_window_s=10)
 FAILSAFE_CPU_C, FAILSAFE_GPU_C, FAILSAFE_SAMPLES = 95, 94, 3
 
 log = logging.getLogger("gt76-fanctld")
+
+
+def _load_lightbar():
+    """tools/lightbar.py: beside this file when installed, under tools/ in the repository."""
+    here = os.path.dirname(os.path.abspath(__file__))
+    for path in (f"{here}/lightbar.py", f"{here}/tools/lightbar.py"):
+        if os.path.exists(path):
+            spec = importlib.util.spec_from_file_location("lightbar", path)
+            mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(mod)
+            return mod
+    return None
+
+
+lightbar = _load_lightbar()
+LIGHTS_RESUME_PASSES = 5   # enforcement passes (2 s apart) that re-send the colors after a resume
 
 
 # --- Low-level I/O -------------------------------------------------------------------
@@ -160,6 +183,12 @@ class Controller:
         self.last_energy = None   # (energy_uj, time) for package power
         self.live_ec = None       # (time, map with EC_LIVE_REGS) shared by status and failsafe
         self.thresholds = None    # (cpu, gpu) band thresholds, verified by the last guard read
+        self.lights_lock = threading.Lock()
+        self.lights = self._load_lights()  # None: never set, leave the controller alone
+        self.lights_error = None
+        self.lights_sent_to = None  # sysfs identity of the controller last written
+        self.lights_resend = 0      # passes left that re-send after a resume
+        self.sleep_clock = self._slept()
 
     # Settings files
     def _load_defaults(self):
@@ -178,6 +207,92 @@ class Controller:
         with open(tmp, "w") as f:
             json.dump(self.defaults, f, indent=2)
         os.replace(tmp, f"{STATE_DIR}/defaults.json")
+
+    def _load_lights(self):
+        try:
+            with open(f"{STATE_DIR}/lights.json") as f:
+                return self.validate_lights(json.load(f))
+        except FileNotFoundError:
+            return None
+        except (ValueError, KeyError, TypeError, OSError) as e:
+            log.error("ignoring unreadable lights.json: %s", e)
+            return None
+
+    def _save_lights(self):
+        os.makedirs(STATE_DIR, exist_ok=True)
+        tmp = f"{STATE_DIR}/lights.json.tmp"
+        with open(tmp, "w") as f:
+            json.dump(self.lights, f, indent=2)
+        os.replace(tmp, f"{STATE_DIR}/lights.json")
+
+    @staticmethod
+    def validate_lights(l):
+        if l is None:
+            return None
+        def rgb(c):
+            c = [int(v) for v in c]
+            if len(c) != 3 or not all(0 <= v <= 255 for v in c):
+                raise ValueError("colors must be [r, g, b] with values 0..255")
+            return c
+        stops = [rgb(c) for c in l["stops"]]
+        if not 1 <= len(stops) <= 8:
+            raise ValueError("lights need 1..8 color stops")
+        brightness = int(l.get("brightness", 255))
+        if not 0 <= brightness <= 255:
+            raise ValueError("brightness must be 0..255")
+        return {"name": str(l.get("name", "Custom"))[:40], "stops": stops, "sides": rgb(l["sides"]),
+                "brightness": brightness}
+
+    @staticmethod
+    def _slept():
+        """Seconds spent asleep since boot (CLOCK_BOOTTIME counts sleep, CLOCK_MONOTONIC doesn't)."""
+        return time.clock_gettime(time.CLOCK_BOOTTIME) - time.monotonic()
+
+    def apply_lights(self, force=False):
+        """Send the saved colors if the controller is new to us (boot, replug) or force is set."""
+        with self.lights_lock:
+            if self.lights is None or lightbar is None:
+                return
+            path = lightbar.find_device()
+            if not path:
+                self.lights_error, self.lights_sent_to = "light-bar controller not found", None
+                return
+            ident = lightbar.device_identity(path)
+            if ident == self.lights_sent_to and not force:
+                return
+            l = self.lights
+            try:
+                ctl = lightbar.Controller(path)
+                try:
+                    ctl.show(lightbar.gradient([tuple(c) for c in l["stops"]]), tuple(l["sides"]), l["brightness"])
+                finally:
+                    ctl.close()
+                self.lights_sent_to, self.lights_error = ident, None
+            except OSError as e:
+                self.lights_error, self.lights_sent_to = f"light bars: {e}", None
+                log.error(self.lights_error)
+
+    def lights_pass(self):
+        slept = self._slept()
+        if slept - self.sleep_clock > 1:
+            log.info("resumed from sleep; re-sending light-bar colors")
+            self.lights_resend = LIGHTS_RESUME_PASSES
+        self.sleep_clock = slept
+        force = self.lights_resend > 0
+        self.lights_resend = max(0, self.lights_resend - 1)
+        self.apply_lights(force)
+
+    def set_lights(self, l):
+        self.lights = self.validate_lights(l)
+        if self.lights is None:
+            try:
+                os.remove(f"{STATE_DIR}/lights.json")
+            except FileNotFoundError:
+                pass
+            return
+        self._save_lights()
+        self.apply_lights(force=True)
+        log.info("lights set to %s", self.lights["name"])
 
     def cpuinfo_max_mhz(self):
         return (read_int(f"{CPU_DIR}/cpu0/cpufreq/cpuinfo_max_freq") or 5300000) // 1000
@@ -299,10 +414,11 @@ class Controller:
 
     def enforce_loop(self):
         while True:
-            try:
-                self.enforce_once()
-            except Exception:  # keep the service alive; the next pass retries
-                log.exception("enforcement pass failed")
+            for step in (self.enforce_once, self.lights_pass):
+                try:
+                    step()
+                except Exception:  # keep the service alive; the next pass retries
+                    log.exception("%s failed", step.__name__)
             time.sleep(ENFORCE_INTERVAL)
 
     def read_live_ec(self):
@@ -364,10 +480,13 @@ class Controller:
                 self.defaults = copy.deepcopy(self.live)
                 self._save_defaults()
                 log.info("saved defaults %s", json.dumps(self.defaults))
+            elif cmd == "lights":
+                self.set_lights(req["lights"])
             elif cmd != "status":
                 raise ValueError(f"unknown cmd {cmd!r}")
             return {"ok": True, "live": self.live, "defaults": self.defaults, "factory": FACTORY,
-                    "hw": self.hw_status(), "failsafe": self.failsafe, "errors": self.errors}
+                    "hw": self.hw_status(), "failsafe": self.failsafe, "errors": self.errors,
+                    "lights": self.lights, "lights_error": self.lights_error}
 
 
 # --- Socket server -------------------------------------------------------------------

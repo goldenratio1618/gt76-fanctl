@@ -57,6 +57,11 @@ def find_device():
     return None
 
 
+def device_identity(path):
+    """sysfs path of the HID device behind a hidraw node; its instance number changes on re-enumeration."""
+    return os.path.realpath(f"/sys/class/hidraw/{os.path.basename(path)}/device")
+
+
 def parse_color(s):
     s = s.lstrip("#")
     if len(s) != 6:
