@@ -67,6 +67,24 @@ Keep PL2 well above real draw: a PL2 near actual draw is enforced every 2.4 ms a
 oscillate. Ubuntu's `thermald` can silently reset PL1, so masking it is recommended
 (`sudo systemctl mask --now thermald`); the CPU still protects itself thermally.
 
+## Light bars
+
+The front and side light bars are on a SteelSeries USB lighting controller (USB `1038:1130`), not
+the EC. It speaks the protocol documented for the MSI GE66 Raider
+([Negraldi/ge66-lighting](https://github.com/Negraldi/ge66-lighting)). On this machine the front bar
+is zones 0–24, left to right, and both side bars share zone 25. `install.sh` adds a udev rule
+giving the logged-in user access, so no root is needed:
+
+```bash
+python3 tools/lightbar.py color 00aaff                       # one color everywhere
+python3 tools/lightbar.py gradient ff0000 00ff00 0000ff --sides ffffff --brightness 128
+python3 tools/lightbar.py off
+```
+
+Colors are live only. The tool never sends the controller's save-to-flash or reset commands, so a
+full power-off returns the bars to whatever was last saved from Windows. The keyboard's lighting is a
+separate controller (`1038:1122`) and isn't supported.
+
 ## Requirements
 
 1. **EC access under Secure Boot: the msi-ec driver in debug mode, signed.** Kernel lockdown

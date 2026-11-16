@@ -14,6 +14,9 @@ install -m 755 "$SRC/tools/cpu_stress.py" /opt/gt76-fanctl/
 install -D -m 644 "$SRC/desktop/gt76-fanctl.svg" /usr/share/icons/hicolor/scalable/apps/gt76-fanctl.svg
 install -m 644 "$SRC/desktop/gt76-fanctl.desktop" /usr/share/applications/gt76-fanctl.desktop
 sed "s/@GROUP@/$GROUP/" "$SRC/systemd/gt76-fanctld.service" > /etc/systemd/system/gt76-fanctld.service
+install -m 755 "$SRC/tools/lightbar.py" /opt/gt76-fanctl/
+install -m 644 "$SRC/udev/70-gt76-lightbar.rules" /etc/udev/rules.d/70-gt76-lightbar.rules
+udevadm control --reload && udevadm trigger --subsystem-match=hidraw || true
 
 echo "== msi-ec in debug mode at boot (raw EC access for fan curves)"
 [ -f /etc/modprobe.d/msi-ec-debug.conf ] || echo "options msi-ec debug=1" > /etc/modprobe.d/msi-ec-debug.conf

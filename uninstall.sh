@@ -11,7 +11,8 @@ s.sendall(b"{\"cmd\": \"restore\", \"which\": \"factory\"}\n"); print(json.loads
 pkexec bash -c '
 systemctl disable --now gt76-fanctld.service
 rm -rf /opt/gt76-fanctl /etc/systemd/system/gt76-fanctld.service /usr/share/applications/gt76-fanctl.desktop \
-       /usr/share/icons/hicolor/scalable/apps/gt76-fanctl.svg
+       /usr/share/icons/hicolor/scalable/apps/gt76-fanctl.svg /etc/udev/rules.d/70-gt76-lightbar.rules
 systemctl daemon-reload
+udevadm control --reload || true
 echo "Removed. Saved defaults kept in /etc/gt76-fanctl (delete it to discard them)."
 '
